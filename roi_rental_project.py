@@ -42,7 +42,7 @@ class Rental():
                     inc_amount = int(input("Enter the amount per month: "))
                     self.incomes[inc_name.lower()] = inc_amount
                 except ValueError:              
-                    print("Sorry, no decimal places or commas. \n ")
+                    print("\nSorry, no decimal places or commas. \n ")
                     continue
             else: 
                  print("\nSorry, that is not a vaild choice for income type, try again")
@@ -119,7 +119,7 @@ class Rental():
         total_cash_exp = down_payment + closing + rehab + other_costs
         annual_cash_flow = monthly_cash_flow * 12
         roi = annual_cash_flow / total_cash_exp * 100        
-        print (f" \nYour Cash on Cash ROI for the ${bldg_cost:,} building is {roi} % ")
+        print (f" \nYour Cash on Cash ROI for the ${bldg_cost:,} building is {round(roi,2)} % ")
 
 
     #Method for user for check entries and start again if errors
@@ -163,10 +163,8 @@ def run():
     print("\nWelcome to the Cash on Cash Return on Investment Calculator!")
     print( "This calculator uses the Four Square Method. Please round numbers to nearest dollar.\nDisclaimer: use at own risk")
 
-
-
     #Add Monthly Income
-    print("\nFirst you will enter the monthly income of your building:")                
+    print("\First you will enter the monthly income of your building:")                
     building.addIncome()
     building.showDictionary('income')
     building.checkDictionary('income')
@@ -176,7 +174,6 @@ def run():
     building.addExpense()
     building.showDictionary('expense')
     building.checkDictionary('expense')
-
 
     # Calculate Cash Flow and ROI
     building.calculateROI(building.calculateCashFlow())
